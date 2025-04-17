@@ -1,0 +1,12 @@
+stages:
+  - test
+
+test-api:
+  stage: test
+  image: maven:3.9.4-eclipse-temurin-17
+  script:
+    - mvn clean verify
+  artifacts:
+    paths:
+      - target/site/serenity
+    expire_in: 1 week
