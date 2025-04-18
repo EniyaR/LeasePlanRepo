@@ -33,5 +33,15 @@ public class PetAPI {
 				.when()
 				.delete(BASE_PATH + "/{petId}");
 	}
+	
+	public static Response updatePet(String payload) {
+		return given()
+				.contentType(ContentType.JSON)
+				.body(payload)
+				.when()
+				.put(BASE_PATH); 
+	}
+		
+
 
 }

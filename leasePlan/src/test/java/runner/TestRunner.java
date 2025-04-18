@@ -7,7 +7,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith (CucumberWithSerenity.class)
 @CucumberOptions (
-		features="src/test/java/features/PetStore.feature",
+		features="src/test/java/features/PetStoreOrders.feature",
 		glue="stepDefinitions", 
 		//dryRun=true,
 		plugin= {"pretty"},
