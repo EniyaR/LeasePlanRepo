@@ -1,27 +1,16 @@
-image: maven:3.8.4-jdk-11
-
 stages:
   - test
 
-cache:
-  paths:
-    - .m2/repository
-
-variables:
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-
-before_script:
-  - export LANG=C.UTF-8
-
-test_job:
+api-tests:
+  image: maven:3.9.6-eclipse-temurin-17
   stage: test
   script:
-    - echo "Current directory:"
-    - pwd
-    - echo "List of files:"
-    - ls -la
+    - cd leasePlan
     - mvn clean verify
   artifacts:
+    when: always
     paths:
-      - target/site/serenity
-    expire_in: 1 week
+      - leasePlan/target/site/serenity
+    reports:
+      junit: leasePlan/target/site/serenity/serenity-junit.xml
+
